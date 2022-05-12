@@ -1,1 +1,8 @@
-<p>counter works!</p>
+<section class="container d-block w-25 p-1  bg-secondary text-white rounded" style="margin-top: 15%">
+    <h6 class="text-center">Counter</h6>
+    <div class=" container d-flex justify-content-around p-3 ml-6  bg-white text-dark w-100 rounded">
+        <input type="number" id="countOutput" size="7" value={{count}} readonly>
+        <button type="button"  class="btn btn-secondary py-2" (click)="onclick()">Count</button>
+    </div>
+</section>
+
