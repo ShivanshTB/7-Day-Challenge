@@ -1,1 +1,10 @@
-<p>temp-converter works!</p>
+<section class="container d-block p-1  bg-secondary text-white rounded" style="margin-top: 15%;width: 35%;">
+    <h6 class="text-center">TempConv</h6>
+    <div class=" container d-flex justify-content-around align-items-center p-3 bg-white text-dark w-100 rounded">
+        <input type="text" [(ngModel)]="cel" id="celsius" class="form-control w-25 h-25" value={{fToC}} (input)="onInputCel()" (focus)="focusC()">
+        <p class="mt-4">Celsius</p>
+        <p class="mt-4">=</p>
+        <input type="text" [(ngModel)]="feh" id="fahrenheit" class="form-control w-25 h-25" value={{cToF}} (input)="onInputFeh()" (focus)="focusF()">
+        <p class="mt-4">Fahrenheit</p>
+    </div>
+</section>
