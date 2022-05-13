@@ -1,1 +1,21 @@
-<p>flight-booker works!</p>
+
+  <alert type="info" [style]="{'display': startAlertShow?'none':''}" >
+    <strong>You have booked one-way flight on:</strong> {{start | date: 'dd-MM-yyyy'}}.
+  </alert>
+  <alert type="info" [style]="{'display': returnAlertShow?'none':''}" >
+    <strong>You have booked your flight on:</strong> {{start | date: 'dd-MM-yyyy'}} and <strong>return flight on:</strong> {{return | date: 'dd-MM-yyyy'}} .
+  </alert>
+
+
+<section class="container d-block w-25 p-1  bg-secondary text-white rounded">
+    <h6 class="text-center">Flight Booker</h6>
+    <div class=" container d-block justify-content-center align-items-center p-3 bg-white text-dark w-100 rounded">
+        <select name="cars" id="flight" class=" w-100" [(ngModel)]="chosen" (ngModelChange)="chosenFun()">
+            <option value="oneWay" class="text-center">One-way flight</option>
+            <option value="returnFlight" class="text-center">Return flight</option>
+          </select>
+        <input type="date" [(ngModel)]="start"  id="startDate" class="form-control mt-4 h-25" [min]="setDate | date:'yyyy-MM-dd'" (input)="startInput()">
+        <input type="date" [(ngModel)]="return" [disabled]="!returnShow" [style]="{'background-color': errr?'red':'white'}" [min]="setDate | date:'yyyy-MM-dd'"  id="returnDate" class="form-control mt-4 h-25" placeholder="Return Date" (input)="returnInput()">
+        <button type="button" [disabled]="bookBtn" class="btn btn-secondary w-100 mt-4" (click)="bookFlight()">Book</button>
+    </div>
+</section>
