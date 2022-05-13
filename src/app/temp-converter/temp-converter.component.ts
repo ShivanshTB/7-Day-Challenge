@@ -17,22 +17,18 @@ export class TempConverterComponent implements OnInit {
     if (this.cel == 0) {
       this.cToF = 0;
     } else {
-      console.log(this.cel);
       let c = this.cel;
       this.cToF = c * (9 / 5) + 32;
       this.cToF = this.cToF.toFixed(2);
-      console.log(this.cToF);
     }
   }
   onInputFeh() {
     if (this.feh == 0) {
       this.fToC = 0;
     } else {
-      console.log(this.feh);
       let f = this.feh;
       this.fToC = (f - 32) * (5 / 9);
       this.fToC = this.fToC.toFixed(2);
-      console.log(this.fToC);
     }
   }
   focusC() {
