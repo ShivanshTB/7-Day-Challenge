@@ -9,6 +9,7 @@ import { FlightBookerComponent } from './flight-booker/flight-booker.component';
 import { TimerComponent } from './timer/timer.component';
 import { CrudComponent } from './crud/crud.component';
 import { CellsComponent } from './cells/cells.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CellsComponent } from './cells/cells.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
