@@ -1,1 +1,20 @@
-<p>timer works!</p>
+<section
+  class="container d-block w-25 h-50 p-1 bg-secondary text-white rounded">
+  <h6 class="text-center">Timer</h6>
+  <div
+    class="container d-block justify-content-center align-items-center p-3 bg-white text-dark w-100 rounded">
+    <div class="progressBar d-flex justify-content-around">
+        <label for="">Elapsed time: </label>
+    <progress id="file" max="{{rangeValue}}" value={{sec}} ></progress>
+    </div>
+    <br>
+    <p class="time">{{sec}} sec</p>
+    <div class="duration d-flex justify-content-around ">
+        <label class="mr-4">Duration: </label>
+    <input type="range" id="rangeBar" min="0" max="60" [(ngModel)]="rangeValue" (change)="changeRange()"> <br> 
+    </div>
+      <div class="button d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary w-75 mt-4" (click)="resetTime()">Reset</button>
+      </div>
+    </div>
+</section>
