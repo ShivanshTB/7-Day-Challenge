@@ -1,1 +1,30 @@
-<p>cells works!</p>
+
+<section
+class="container d-block w-50 h-50 p-1 bg-secondary text-white rounded">
+<h6 class="text-center">Cells</h6>
+<div
+  class="divCell container d-block justify-content-center align-items-center p-1 bg-white text-dark w-100 rounded">
+    <table id="table" class="table table-bordered p-0">
+        <thead class="thead">
+           <tr>
+            <th scope="col" class=" head bg-secondary text-white text-center" *ngFor="let alpha of aplhabets">
+                {{alpha}}
+            </th>
+           </tr>
+        </thead>
+    
+        <tbody id="Tbody">  
+
+            <tr  *ngFor="let num of nums; let n = index;"  id=a{{n}} (click)="rowIn(n)">
+
+                <td class="text-center p-1">{{num}}</td>
+
+                <td class="p-0" *ngFor="let item of createRange(26);  let i = index ; " id={{i}} (click)="cellIn(i)">
+                    <input type="text" (keyup.enter)="inputBlur()">
+                </td>       
+          
+        </tbody>
+    </table>
+
+  </div>
+</section>

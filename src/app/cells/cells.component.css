@@ -1,0 +1,17 @@
+section{
+    margin-top: 4%;
+    max-height: 50vh;
+    box-sizing: border-box;
+}
+.divCell{
+    max-height: 40vh;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+tr,td{
+    width: 60px;
+}
+thead th{
+    min-width: 100px;
+}
