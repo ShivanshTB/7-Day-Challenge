@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import  {FormControl,FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-temp-converter',
   templateUrl: './temp-converter.component.html',
@@ -6,23 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TempConverterComponent implements OnInit {
   constructor() {}
-
   ngOnInit(): void {}
-  cel!: number;
-  feh!: number;
+
+  tempForm = new FormGroup({
+    cel: new FormControl(''),
+    feh: new FormControl('')
+  });
+
   onInputCel() {
-    if(this.cel == undefined){
-      this.cel = 0;
+      this.tempForm.patchValue({
+        feh: Number(((this.tempForm.get("cel")?.value) * (9/5) + 32).toFixed(2))
+      })
+    
     }
-      this.feh = this.cel * (9 / 5) + 32;
-      this.feh = Number(this.feh.toFixed(2));
-  }
+
   onInputFeh() {
-    if(this.feh == undefined){
-      this.feh = 0;
-    }
-      this.cel = (this.feh - 32) * (5 / 9);
-      this.cel = Number(this.cel.toFixed(2));
-   
+      this.tempForm.patchValue({
+        cel: Number(((this.tempForm.get("feh")?.value -32)*(5/9)).toFixed(2))
+      })
   }
 }

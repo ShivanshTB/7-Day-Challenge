@@ -1,10 +1,13 @@
-<section class="container d-block p-1  bg-secondary text-white rounded">
+
+<section class="container d-block p-1  bg-secondary text-white rounded" style="margin-top: 15%;width: 35%;">
     <h6 class="text-center">TempConv</h6>
-    <div class=" container d-flex justify-content-around align-items-center p-3 bg-white text-dark w-100 rounded">
-        <input type="number" [(ngModel)]="cel" id="celsius" class="form-control w-25 h-25" (ngModelChange)="onInputCel()">
+    <form [formGroup]="tempForm" autocomplete="off">
+            <div class=" container d-flex flex-row justify-content-around align-items-center p-3 bg-white text-dark w-100 rounded">
+            <input type="number" formControlName="cel" id="celsius" class="form-control w-25 h-25" (input)="onInputCel()">
         <p class="mt-4">Celsius</p>
         <p class="mt-4">=</p>
-        <input type="number" [(ngModel)]="feh" id="fahrenheit" class="form-control w-25 h-25" (ngModelChange)="onInputFeh()">
+        <input type="number" formControlName="feh"  id="fahrenheit" class="form-control w-25 h-25"  (input)="onInputFeh()">
         <p class="mt-4">Fahrenheit</p>
     </div>
+        </form>
 </section>
