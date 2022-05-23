@@ -9,7 +9,7 @@ import { FlightBookerComponent } from './flight-booker/flight-booker.component';
 import { TimerComponent } from './timer/timer.component';
 import { CrudComponent } from './crud/crud.component';
 import { CellsComponent } from './cells/cells.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,8 @@ import { CellsComponent } from './cells/cells.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
