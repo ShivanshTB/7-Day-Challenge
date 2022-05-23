@@ -10,24 +10,24 @@ export class TimerComponent implements OnInit {
   constructor() {}
 
   sec: number = 0;
-  rangeValue: Number = 30;
+  rangeValue: number = 30;
 
   ngOnInit(): void {
+   this.startTimer();
+  }
+  startTimer(){
     const set = setInterval(() => {
       this.sec++;
-      if (this.sec == this.rangeValue) {
-        clearInterval(set);
-      }else if(this.sec > this.rangeValue){
+      if (this.sec >= this.rangeValue) {
         clearInterval(set);
       }
     },1000);
   }
-
   resetTime(){
     this.sec = 0;
-    this.ngOnInit();
+    this.startTimer();
   }
   changeRange(){
-    this.ngOnInit();
+    this.startTimer();
   }
 }
