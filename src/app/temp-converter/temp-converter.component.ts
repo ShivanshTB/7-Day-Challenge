@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-temp-converter',
   templateUrl: './temp-converter.component.html',
@@ -9,36 +8,21 @@ export class TempConverterComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  cel!: any;
-  cToF!: any;
-  feh!: any;
-  fToC!: any;
+  cel!: number;
+  feh!: number;
   onInputCel() {
-    if (this.cel == 0) {
-      this.cToF = 0;
-    } else {
-      let c = this.cel;
-      this.cToF = c * (9 / 5) + 32;
-      this.cToF = this.cToF.toFixed(2);
+    if(this.cel == undefined){
+      this.cel = 0;
     }
+      this.feh = this.cel * (9 / 5) + 32;
+      this.feh = Number(this.feh.toFixed(2));
   }
   onInputFeh() {
-    if (this.feh == 0) {
-      this.fToC = 0;
-    } else {
-      let f = this.feh;
-      this.fToC = (f - 32) * (5 / 9);
-      this.fToC = this.fToC.toFixed(2);
+    if(this.feh == undefined){
+      this.feh = 0;
     }
-  }
-  focusC() {
-    if (this.fToC) {
-      this.fToC = '';
-    }
-  }
-  focusF() {
-    if (this.cToF) {
-      this.cToF = '';
-    }
+      this.cel = (this.feh - 32) * (5 / 9);
+      this.cel = Number(this.cel.toFixed(2));
+   
   }
 }
