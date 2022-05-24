@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +31,11 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     FormsModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
-    [AlertModule.forRoot(),]
+    [AlertModule.forRoot(),],
+    ReactiveFormsModule,
+    
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
