@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { findIndex } from 'rxjs';
+import { FormControl,FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crud',
@@ -12,24 +12,23 @@ export class CrudComponent implements OnInit {
 
   ngOnInit(): void {    }
 
-  name!: String;
-  surname!: String;
   dataArr :any[]= [];
   updateBtn: Boolean = true;
   deleteBtn: Boolean = true;
-  dataObj : any = {"Name":"","Surname":""};
   storeArr = this.dataArr;
   indexObj!: number;
   search!: string;
-  showSearch : Boolean = false;
-  toShow: Boolean = true;
+
+  nameForm = new FormGroup({
+    firstname: new FormControl(''),
+    surname: new FormControl('')
+  })
 
   read(){
-    if(this.name != "" || this.surname != ""){
-      this.dataObj = {"Name":this.name,"Surname": this.surname};
-      this.dataArr.push(this.dataObj);
+    if(this.nameForm.get('firstname')?.value == ""){
+      alert("Please enter your details!");
     }else{
-      alert("Please entered your details!")
+      this.dataArr.push(this.nameForm?.value);
     }
  }
    create(){
@@ -38,35 +37,50 @@ export class CrudComponent implements OnInit {
   }
 
 reset(){
-  this.name = "";
-  this.surname = "";
+  this.nameForm.setValue({
+    firstname: '',
+    surname: ''
+  })
 }
+
   select(e:any){
-     this.indexObj = this.dataArr.findIndex(function(index){
-       return index.Name == e.Name && index.Surname ==e.Surname
-     })
-    this.name = e.Name;
-    this.surname = e.Surname;
+    this.indexObj = this.dataArr.indexOf(e)
+     this.nameForm.setValue({
+      firstname: e.firstname,
+      surname: e.surname,
+    })
     this.updateBtn = false;
     this.deleteBtn = false;
   }
 
   delete(){
-    this.dataArr.splice(this.indexObj,1);
-    this.reset();
+    if(this.nameForm.get("firstname")?.value != "" || this.nameForm.get("surname")?.value != ""){
+      this.dataArr.splice(this.indexObj,1);
+      this.updateBtn = true;
+      this.deleteBtn = true;
+      this.reset();
+    }else{
+      alert("Please select to delete!");
+    }
+   
   }
 
   update(){
-    this.dataArr[this.indexObj]["Name"] = this.name;
-    this.dataArr[this.indexObj]["Surname"] = this.surname;
+    if(this.nameForm.get("firstname")?.value !="" || this.nameForm.get("surname")?.value != ""){
+      this.dataArr[this.indexObj]["firstname"] = this.nameForm.get("firstname")?.value;
+    this.dataArr[this.indexObj]["surname"] = this.nameForm.get("surname")?.value;
     this.reset();
+    }else{
+      alert("Please select to update!");
+    }
+    
   }
 
   find(){
     let searchWord = this.search.toLowerCase();
      if(this.search){
       let save = this.dataArr.filter((res)=>{
-        return res.Surname.toLowerCase().includes(searchWord);
+        return res.surname.toLowerCase().includes(searchWord);
       })    
       this.dataArr = save;
     }else{

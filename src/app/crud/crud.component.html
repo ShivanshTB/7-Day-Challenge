@@ -1,36 +1,63 @@
-
-<section class="container d-block w-50 h-50 p-1  bg-secondary text-white rounded">
-    <h6 class="text-center">Flight Booker</h6>
-    <div class=" container d-block justify-content-center align-items-center p-3 bg-white text-dark w-100 rounded">
-       <div id="search">
-           <label>Filter prefix: </label>
-           <input type="text" [(ngModel)]="search" (input)="find()" class="ml-3">
-       </div>
-       <div id="form" class="d-flex  justify-content-center mt-3">
-           <div class="display container">
-              <select name="" id="select" class="w-75" size="4" >
-            <option value="" (click) = "select(this.item)" *ngFor = "let item of dataArr" >
-                {{item.Name}} {{item.Surname}}
-            </option>
-              </select>
-              
-           </div>
-           <div id="name" class="d-block w-75">
-               <div class="d-inline-flex justify-content-around">
-                <span class="mr-4">Name </span>
-                <input type="text" class="ml-5" id="nameField" [(ngModel)]="name">
-               </div>
-               <br>
-              <div class="d-inline-flex mt-3">
-                <span class="mr-4">Surname </span>
-                <input type="text" class="ml-1" id="surnameField" [(ngModel)]="surname">
-              </div>
-           </div>
-       </div>
-        <div id="button" class=" d-flex justify-content-around">
-            <button type="button" class="btn btn-secondary w-25 mt-4 mr-3" (click)="create()">Create</button>
-            <button type="button" class="btn btn-secondary w-25 mt-4 mr-3" [disabled]="updateBtn" (click)="update()">Update</button>
-            <button type="button" class="btn btn-secondary w-25 mt-4 mr-3" [disabled]="deleteBtn" (click)="delete()">Delete</button>
-        </div>
+<section
+  class="container d-block w-50 h-50 p-1 bg-secondary text-white rounded">
+  <h6 class="text-center">Flight Booker</h6>
+  <div class="container d-block justify-content-center align-items-center p-3 bg-white text-dark w-100 rounded">
+    <div id="search">
+        <div class="row mb-2">
+            <label class="col-sm-2 col-form-label">Filter prefix:</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" [(ngModel)]="search" (input)="find()" >
+            </div>
+          </div>
+      <!-- <label>Filter prefix: </label>
+      <input type="text" [(ngModel)]="search" (input)="find()" class="ml-3" /> -->
     </div>
-</section>
+    <div id="form" class="d-flex justify-content-around mt-3 w-100">
+      <div class="display container ">
+        <select id="select" class="w-100" size="4">
+          <option (click)="select(this.item)" *ngFor="let item of dataArr">
+            {{ item.firstname }} {{ item.surname }}
+          </option>
+        </select>
+      </div>
+
+      <div id="name" class="d-block w-100">
+        <form [formGroup]="nameForm">
+            <div class="row mb-3">
+              <label class="col-sm-3 col-form-label">Name</label>
+              <div class="col-sm-7">
+                <input type="text" class="form-control" formControlName="firstname">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-3 col-form-label">Surname</label>
+              <div class="col-sm-7 ">
+                <input type="text" class="form-control" formControlName="surname" >
+              </div>
+            </div>
+          </form>
+        <!-- <div class="d-inline-flex justify-content-around">
+          <span class="mr-4">Name </span>
+          <input type="text" class="ml-5" id="nameField" [(ngModel)]="name">
+        </div> 
+        <br>
+         <div class="d-inline-flex mt-3">
+          <span class="mr-4">Surname </span>
+          <input type="text" class="ml-1" id="surnameField" [(ngModel)]="surname" >
+        </div>  -->
+      </div>
+      
+    </div>
+    <div id="button" class="d-flex justify-content-around">
+      <button type="button" class="btn btn-secondary w-25 mt-4 mr-3" (click)="create()">
+        Create
+      </button>
+      <button type="button" class="btn btn-secondary w-25 mt-4 mr-3" [disabled]="updateBtn" (click)="update()">
+        Update
+      </button>
+      <button type="button" class="btn btn-secondary w-25 mt-4 mr-3" [disabled]="deleteBtn" (click)="delete()">
+        Delete
+      </button>
+    </div>
+  </div>
+<!-- </section> -->
