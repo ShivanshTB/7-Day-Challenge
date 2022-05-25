@@ -1,1 +1,13 @@
-<p>temp-converter works!</p>
+
+<section class="container d-block p-1  bg-secondary text-white rounded">
+    <h6 class="text-center">TempConv</h6>
+    <form [formGroup]="tempForm" autocomplete="off">
+            <div class=" container d-flex flex-row justify-content-around align-items-center p-3 bg-white text-dark w-100 rounded">
+            <input type="number" formControlName="cel" id="celsius" class="form-control w-25 h-25" (input)="onInputCel()">
+        <p class="mt-4">Celsius</p>
+        <p class="mt-4">=</p>
+        <input type="number" formControlName="feh"  id="fahrenheit" class="form-control w-25 h-25"  (input)="onInputFeh()">
+        <p class="mt-4">Fahrenheit</p>
+    </div>
+        </form>
+</section>
