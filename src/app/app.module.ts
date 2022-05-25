@@ -9,6 +9,7 @@ import { FlightBookerComponent } from './flight-booker/flight-booker.component';
 import { TimerComponent } from './timer/timer.component';
 import { CrudComponent } from './crud/crud.component';
 import { CellsComponent } from './cells/cells.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -24,7 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
