@@ -1,1 +1,13 @@
-<p>counter works!</p>
+<section class="container d-block w-25 p-1  bg-secondary text-white rounded">
+    <h6 class="text-center">Counter</h6>
+    <div class=" container d-flex justify-content-around p-3 ml-6  bg-white text-dark w-100 rounded">
+        <form [formGroup]="countForm" >
+            <input type="number" class="form-control" formControlName="countBox" id="countOutput" size="7"  readonly>    
+            <div class=" d-flex justify-content-around mt-2 ">
+                <button type="button"  class="btn btn-secondary py-2" (click)="onclick()">Count</button>
+            <button type="button"  class="btn btn-secondary py-2" (click)="reset()" >Reset</button>
+            </div>
+        </form>
+    </div>
+</section>
+
