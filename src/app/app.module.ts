@@ -9,7 +9,10 @@ import { FlightBookerComponent } from './flight-booker/flight-booker.component';
 import { TimerComponent } from './timer/timer.component';
 import { CrudComponent } from './crud/crud.component';
 import { CellsComponent } from './cells/cells.component';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -26,11 +29,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    [AlertModule.forRoot(),],
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
