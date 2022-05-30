@@ -13,8 +13,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-
+import { HttpClientModule } from '@angular/common/http';
+import { TodoServiceService } from './services/todo-service.service';
+import { TodoComponent } from './todo/todo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,8 @@ import { DatePipe } from '@angular/common';
     FlightBookerComponent,
     TimerComponent,
     CrudComponent,
-    CellsComponent
+    CellsComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +36,13 @@ import { DatePipe } from '@angular/common';
     BsDropdownModule.forRoot(),
     [AlertModule.forRoot(),],
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,TodoServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
