@@ -1,0 +1,29 @@
+
+
+
+<section class="container d-block w-75 h-50 p-1 mt-5 bg-secondary text-white rounded">
+    <h1 class="text-center">todos</h1>
+    <div class="container d-block justify-content-center align-items-center p-3 bg-white text-dark w-100 rounded">
+      <div class="mb-3">
+        <input type="text" class="form-control form-control-lg" [formControl]="todoText" id="exampleFormControlInput1" placeholder="Whats next to be done?" (keyup.enter)="addTodo()" >
+          <div *ngIf="todoList?.length>0,else noToDO">
+              <div class="border p-3 m-2 fs-5 d-flex justify-content-between" *ngFor="let toDo of todoList" >
+                  <span [ngClass]="{'line':toDo.completed==true}">{{ toDo.title }}</span>
+                  <div class="container d-flex justify-content-end">
+                    <button class="done btn fw-bold text-green shadow-none" (click)="done(toDo.id)">&check;</button>
+                    <button class="btn shadow-none" (click)="remove(toDo.id)">&#10060;</button>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+          <button class="btn text-white shadow-none" (click)="getData()">All</button>
+          <button class="btn text-white shadow-none" (click)="active()">Active</button>
+          <button class="btn text-white shadow-none" (click)="comp()">Completed</button>
+      </div>
+      <ng-template #noToDO>
+          <p class="alert alert-danger text-center">{{errMsg}}</p>
+      </ng-template>
+  </section>
+  

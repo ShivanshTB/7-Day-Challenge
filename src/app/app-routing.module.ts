@@ -6,6 +6,8 @@ import { CrudComponent } from './crud/crud.component';
 import { FlightBookerComponent } from './flight-booker/flight-booker.component';
 import { TempConverterComponent } from './temp-converter/temp-converter.component';
 import { TimerComponent } from './timer/timer.component';
+import { TodoComponent } from './todo/todo.component';
+
 
 const routes: Routes = [
   {path:'counter',component: CounterComponent},
@@ -14,6 +16,7 @@ const routes: Routes = [
   {path:'timer',component: TimerComponent},
   {path:'crud',component: CrudComponent},
   {path:'cells',component: CellsComponent},
+  {path:'todo',component: TodoComponent},
 ];
 
 @NgModule({
